@@ -48,7 +48,7 @@ monthly_flow.plot(kind='bar', legend=True,
   </div>
 
   <!-- Right Column: Screenshot -->
-  <img src="chart.png" alt="Chart" style="max-width: 55%; height: 40%;"/>
+  <img src="./assets/chart.png" alt="Chart" style="max-width: 55%; height: 40%;"/>
   
 </div>
 
@@ -56,13 +56,13 @@ monthly_flow.plot(kind='bar', legend=True,
 - A budget setter on different categories is also implemented to compare the budget with actual spendings
 - The budget setter is implemented by using [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html)
 
- <img src="setter.png" alt="Budget Setter" style="max-width: 35%; height: 30%;"/>
+ <img src="./assets/setter.png" alt="Budget Setter" style="max-width: 35%; height: 30%;"/>
 
 ### Monthly overview with budget
 - Pick a month to view a bar chart of monthly spendings with set budgets on different categories 
 - This bar chart can be useful for further financial planning 
 
-<img src="budget_chart.png" alt="Monthly Overview with Budget" style="max-width: 40%; height: 30%;"/>
+<img src="./assets/budget_chart.png" alt="Monthly Overview with Budget" style="max-width: 40%; height: 30%;"/>
 
 
 
