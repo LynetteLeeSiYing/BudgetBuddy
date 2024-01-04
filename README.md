@@ -1,9 +1,14 @@
 BudgetBuddy💰📊
 ===
+## Project Inspiration
+
+I embarked on this project with the interest of myself in financial planning tools as well as my enthusiasm for **HSBC**. As I have noticed, while HSBC UK mobile app featured transaction categorization, I noticed the absence of a similar feature in apps from my home region, Malaysia, and also in Singapore HSBC app.
+
+The inspiration for this project stemmed from the belief that transaction categorization is crucial for effective financial planning. Even for myself, I downloaded a financial insight app, [Spendee](https://www.spendee.com/), to track my spending habits, and I loved it so much that it inspired the creation of BudgetBuddy.
 ## Project Description:
 
-In this project, I have made a transaction categorisation on the transaction data taken from [Plaid API](https://plaid.com/docs/api/). In addition to that, I have also implemented
-a budget setter to set a budget on different categories and compare the budget with actual spendings.
+In this project, I have made a *transaction categorisation* on the transaction data taken from [Plaid API](https://plaid.com/docs/api/). In addition to that, I have also implemented
+a *budget setter* to set a budget on different categories and compare the budget with actual spendings.
 
 ## Project Overview:
 ### Transaction Categorisation
@@ -43,7 +48,7 @@ monthly_flow.plot(kind='bar', legend=True,
   </div>
 
   <!-- Right Column: Screenshot -->
-  <img src="chart.png" alt="Chart" style="max-width: 50%; height: 30%;"/>
+  <img src="chart.png" alt="Chart" style="max-width: 55%; height: 40%;"/>
   
 </div>
 
@@ -71,7 +76,7 @@ monthly_flow.plot(kind='bar', legend=True,
   <tr>
     <td align="center">Notebook Environment</td>
     <td>
-      <img src="https://github-readme-tech-stack.vercel.app/api/cards?theme=github_dark&title=Jupyter Noteboook&lineCount=1&line1=Jupyter,Jupyter,auto;python,python,61DAFB">
+      <img src="https://github-readme-tech-stack.vercel.app/api/cards?theme=github_dark&title=Jupyter_Noteboook&lineCount=1&line1=Jupyter,Jupyter,auto;python,python,61DAFB">
     </td>
   </tr>
 
@@ -92,7 +97,7 @@ monthly_flow.plot(kind='bar', legend=True,
   <tr>
     <td align="center">Version Control and Code Hosting</td>
     <td>
-      <img src="https://github-readme-tech-stack.vercel.app/api/cards?theme=github_dark&title=Git and Github&lineCount=1&line1=git,Git,auto;Git hub,61DAFB">
+      <img src="https://github-readme-tech-stack.vercel.app/api/cards?theme=github_dark&title=Git_and_Github&lineCount=1&line1=git,Git,auto;Git hub,61DAFB">
     </td>
   </tr>
 </table>
