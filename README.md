@@ -97,7 +97,7 @@ monthly_flow.plot(kind='bar', legend=True,
   <tr>
     <td align="center">Version Control and Code Hosting</td>
     <td>
-      <img src="https://github-readme-tech-stack.vercel.app/api/cards?theme=github_dark&title=Git_and_Github&lineCount=1&line1=git,Git,auto;Git hub,61DAFB">
+      <img src="https://github-readme-tech-stack.vercel.app/api/cards?theme=github_dark&title=Git_and_Github&lineCount=1&line1=git,Git,auto;Github,61DAFB">
     </td>
   </tr>
 </table>
