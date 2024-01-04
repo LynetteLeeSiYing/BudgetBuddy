@@ -1,30 +1,65 @@
-BudgetBuddy
+BudgetBuddy💰📊
 ===
 ## Project Description:
 
-In this project, I have made a transaction categorisation on the transaction data taken from Plaid API. 
+In this project, I have made a transaction categorisation on the transaction data taken from [Plaid API](https://plaid.com/docs/api/). In addition to that, I have also implemented
+a budget setter to set a budget on different categories and compare the budget with actual spendings.
 
-## Prerequisites:
+## Project Overview:
+### Transaction Categorisation
 
-- Current version of [Node.js](https://nodejs.org/). >=v14.0.0
-- Private key of the sender's account
-  - If the account was created using [near-cli](https://docs.near.org/tools/near-cli) or you ran [near login](https://docs.near.org/tools/near-cli#for-accounts) in your terminal, the private key can be found in a `.json` file located in `/HOME/.near-credentials`.
-  - If the account was created using [NEAR Wallet](https://wallet.testnet.near.org/), the key can be found in the browser's Local Storage (in your browser's Developer tools... `Application >> Storage >> Local Storage`). Watch [this short video](https://youtu.be/rw2Tdc-7ccM) to learn how to get it.
+- The transaction data was fetched from Plaid API, and I have categorized them based on their detailed category and month of transaction, and finally plot them in a bar chart as below.
+- The list of categories is based on the data, it can be adjusted based on own preference.
 
-## Setup:
+- Below here is a snippet of my code for categorisation part:
 
-1) Setup an environment variable `SENDER_PRIVATE_KEY` with the private key of the sender's account.
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start;">
 
-Either create a `.env` file in the root of this project, or export a bash variable by running the following in your terminal (replacing the example key).
+  <!-- Left Column: Code -->
+  <div style="flex: 1; margin-right: 20px;">
+    
+```python
+# Categorisation
+import pandas as pd
+import datetime
+%run transaction_data.py
 
-```bash
-export SENDER_PRIVATE_KEY=3wb4fVQvafPebkcCmyQPgMa2VsnX3JAQXZ4gjpc3kSu9AbVtLpLZqEog4xTbJrJxG1Y88SkHpuJV58GmPRnPXMD
+df = pd.json_normalize(data)
+df['date'] = pd.to_datetime(df['date'])
+df=df[['amount','personal_finance_category.primary','personal_finance_category.detailed','date']]
+
+# group by month and category
+monthly_flow=df.groupby([df['date'].dt.month, 'personal_finance_category.primary'])['amount'].sum().unstack()
+monthly_flow = monthly_flow.rename_axis(columns='Category')
+
+display(monthly_flow)
+monthly_flow.plot(kind='bar', legend=True, 
+                  figsize=(10, 6),
+                  ylabel='Amount',
+                  xlabel='Month',
+                ).legend(bbox_to_anchor=(1.0, 1.0))
 ```
 
-2) Install dependencies by running:
-```bash
-npm i
-```
+  </div>
+
+  <!-- Right Column: Screenshot -->
+  <img src="chart.png" alt="Chart" style="max-width: 50%; height: 30%;"/>
+  
+</div>
+
+### A Budget setter
+- A budget setter on different categories is also implemented to compare the budget with actual spendings
+- The budget setter is implemented by using [Jupyter Widgets](https://ipywidgets.readthedocs.io/en/stable/examples/Widget%20List.html)
+
+ <img src="setter.png" alt="Budget Setter" style="max-width: 35%; height: 30%;"/>
+
+### Monthly overview with budget
+- Pick a month to view a bar chart of monthly spendings with set budgets on different categories 
+- This bar chart can be useful for further financial planning 
+
+<img src="budget_chart.png" alt="Monthly Overview with Budget" style="max-width: 40%; height: 30%;"/>
+
+
 
 ## Built Using:
 <table>
@@ -50,37 +85,19 @@ npm i
   <tr>
     <td align="center">Data Manipulation and Visualisation</td>
     <td>
-      <img src="https://github-readme-tech-stack.vercel.app/api/cards?theme=github_dark&title=Pandas&lineCount=1&line1=Pandas,Pandas,auto,61DAFB">
+      <img src="https://github-readme-tech-stack.vercel.app/api/cards?theme=github_dark&title=Pandas&lineCount=1&line1=Pandas,Pandas,auto;61DAFB">
+    </td>
+  </tr>
+
+  <tr>
+    <td align="center">Version Control and Code Hosting</td>
+    <td>
+      <img src="https://github-readme-tech-stack.vercel.app/api/cards?theme=github_dark&title=Git and Github&lineCount=1&line1=git,Git,auto;Git hub,61DAFB">
     </td>
   </tr>
 </table>
 
-### Send Tokens (High Level)
->[`send-tokens-easy.js`](./send-tokens-easy.js) will show you the easiest (JavaScript) way to send NEAR tokens (Ⓝ) using a [`near-api-js`](https://github.com/near/near-api-js) method; `account.sendMoney()`
 
-1) In `send-tokens-easy.js`, update:
-  - account IDs for `sender` and `receiver`.
-  - network ID (`default` is `testnet`)
+For a detailed code, see [myGitHubRepo](https://github.com/LynetteLeeSiYing/BudgetBuddy.git) 
 
-2) Run the file and send those tokens!
-
-```bash
-node send-tokens-easy.js
-```
-
-### Send Tokens (Low Level)
->[`send-tokens-deconstructed.js`](./send-tokens-deconstructed.js) completely dissects the transaction construction process and shows the lowest level way to send NEAR tokens (Ⓝ).
-
-1) In `send-tokens-deconstructed.js`, update:
-  - account IDs for `sender` and `receiver`.
-  - network ID (`testnet` is default)
-2) Enter the amount of Ⓝ you would like to send.
-3) Run the file and send those tokens!
-  
-```bash
-node send-tokens-deconstructed.js
-```
-
-For a detailed walk-through, see the [create-transactions](https://docs.near.org/integrator/create-transactions) doc.
-
-Happy coding! 🚀 
+Thanks for Reading! 🚀 
