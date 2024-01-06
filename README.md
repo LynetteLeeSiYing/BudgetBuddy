@@ -2,7 +2,7 @@ BudgetBuddy💰📊
 ===
 ## Project Inspiration
 
-I embarked on this project with the interest of myself in financial planning tools as well as my enthusiasm for **HSBC**. As I have noticed, while HSBC UK mobile app featured transaction categorization, I noticed the absence of a similar feature in apps from my home region, Malaysia, and also in Singapore HSBC app.
+I embarked on this project with the interest of myself in financial planning tools as well as my enthusiasm for personal finance. 
 
 The inspiration for this project stemmed from the belief that transaction categorization is crucial for effective financial planning. Even for myself, I downloaded a financial insight app, [Spendee](https://www.spendee.com/), to track my spending habits, and I loved it so much that it inspired the creation of BudgetBuddy.
 ## Project Description:
